@@ -20,14 +20,12 @@ permissions:
 
 jobs:
   mirror-repository:
+    if: false
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    # Only run on specific repository
-    if: github.repository == 'isaac-sim/IsaacLab'
     environment:
       name: mirror-production
       url: https://github.com/${{ vars.TARGET_REPO }}
-
     steps:
     - name: Install Git LFS
       run: |
